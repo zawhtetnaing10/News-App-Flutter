@@ -15,7 +15,6 @@ const double TEXT_REGULAR_3X = 20;
 const double TEXT_HEADING_1X = 24;
 
 ///App Specific
-const double HOME_HEADER_MARGIN_TOP = 64;
 const double HOME_SCREEN_PROFILE_IMAGE_SIZE = 48;
 const double HOME_HEADER_TEXT_SIZE = 40;
 const double NEWS_CELL_TITLE_TEXT_SIZE = 28;

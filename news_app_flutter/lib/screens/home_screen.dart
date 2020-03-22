@@ -119,17 +119,13 @@ class TopNewsList extends StatelessWidget {
 }
 
 class HomeHeader extends StatelessWidget {
-  const HomeHeader({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.only(
         left: MARGIN_XLARGE,
         right: MARGIN_XLARGE,
-        top: HOME_HEADER_MARGIN_TOP,
+        top: MARGIN_XXLARGE,
       ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.end,

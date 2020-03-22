@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app_flutter/utils/constants.dart';
 import 'package:news_app_flutter/utils/dimensions.dart';
 import 'package:news_app_flutter/widgets/profile_image.dart';
+import 'package:transparent_image/transparent_image.dart';
 
 class NewsCell extends StatelessWidget {
   final double cellWidth;
@@ -43,10 +44,6 @@ class TransparentOverlay extends StatelessWidget {
 }
 
 class NewsOverlay extends StatelessWidget {
-  const NewsOverlay({
-    Key key,
-  }) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -168,9 +165,10 @@ class HeroImage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned.fill(
-      child: Image(
+      child: FadeInImage.memoryNetwork(
         fit: BoxFit.cover,
-        image: NetworkImage(DUMMY_NEWS_IMAGE),
+        placeholder: kTransparentImage,
+        image: DUMMY_NEWS_IMAGE,
       ),
     );
   }
