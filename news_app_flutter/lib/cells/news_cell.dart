@@ -4,24 +4,29 @@ import 'package:news_app_flutter/utils/dimensions.dart';
 import 'package:news_app_flutter/widgets/profile_image.dart';
 
 class NewsCell extends StatelessWidget {
-  final cellWidth;
+  final double cellWidth;
+  final VoidCallback onTapNews;
 
-  NewsCell({this.cellWidth});
+  NewsCell({this.cellWidth, this.onTapNews});
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.all(
-        Radius.circular(MARGIN_MEDIUM_2),
-      ),
-      child: Container(
-        width: cellWidth,
-        child: Stack(
-          children: <Widget>[
-            HeroImage(),
-            TransparentOverlay(),
-            NewsOverlay(),
-          ],
+    return FlatButton(
+      padding: EdgeInsets.zero,
+      onPressed: onTapNews,
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(
+          Radius.circular(MARGIN_MEDIUM_2),
+        ),
+        child: Container(
+          width: cellWidth,
+          child: Stack(
+            children: <Widget>[
+              HeroImage(),
+              TransparentOverlay(),
+              NewsOverlay(),
+            ],
+          ),
         ),
       ),
     );

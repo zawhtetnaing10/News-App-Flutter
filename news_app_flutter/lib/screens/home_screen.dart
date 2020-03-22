@@ -5,6 +5,8 @@ import 'package:news_app_flutter/utils/constants.dart';
 import 'package:news_app_flutter/utils/dimensions.dart';
 import 'package:news_app_flutter/widgets/profile_image.dart';
 
+import 'news_details_screen.dart';
+
 class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -47,7 +49,14 @@ class PopularNewsSection extends StatelessWidget {
           physics: NeverScrollableScrollPhysics(),
           padding: EdgeInsets.fromLTRB(
               MARGIN_XLARGE, MARGIN_LARGE, MARGIN_XLARGE, MARGIN_XXLARGE),
-          itemBuilder: (context, index) => PopularNewsCell(),
+          itemBuilder: (context, index) => PopularNewsCell(
+            onTapPopularNews: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NewsDetailsScreen(),
+              ),
+            ),
+          ),
           separatorBuilder: (context, index) => SizedBox(height: MARGIN_XLARGE),
           itemCount: 20,
         )
@@ -97,6 +106,12 @@ class TopNewsList extends StatelessWidget {
         itemBuilder: (context, index) => NewsCell(
           cellWidth: MediaQuery.of(context).size.width -
               HOME_SCREEN_TOP_NEWS_CELL_WIDTH_SUBTRACTION,
+          onTapNews: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => NewsDetailsScreen(),
+            ),
+          ),
         ),
       ),
     );

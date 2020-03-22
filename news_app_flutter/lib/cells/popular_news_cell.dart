@@ -1,82 +1,29 @@
 import 'package:flutter/material.dart';
 import 'package:news_app_flutter/utils/constants.dart';
 import 'package:news_app_flutter/utils/dimensions.dart';
+import 'package:news_app_flutter/widgets/popular_news_info.dart';
 
 class PopularNewsCell extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          PopularNewsImage(),
-          SizedBox(width: MARGIN_XLARGE),
-          Expanded(
-            child: PopularNewsInfo(),
-          ),
-        ],
-      ),
-    );
-  }
-}
+  final VoidCallback onTapPopularNews;
 
-class PopularNewsInfo extends StatelessWidget {
+  PopularNewsCell({this.onTapPopularNews});
+
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Text(
-          "DESIGN",
-          style: TextStyle(
-            color: Colors.red,
-          ),
-        ),
-        SizedBox(height: MARGIN_MEDIUM),
-        Text(
-          "Most Awaited - Figma Launches Plugin",
-          style: TextStyle(
-            color: Colors.black,
-            fontWeight: FontWeight.bold,
-            fontSize: TEXT_REGULAR_2X,
-          ),
-        ),
-        SizedBox(height: MARGIN_MEDIUM),
-        Row(
+    return GestureDetector(
+      onTap: onTapPopularNews,
+      child: Container(
+        child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            IconAndText(icon: Icons.access_time, text: "14 secs ago"),
-            SizedBox(width: MARGIN_LARGE),
-            IconAndText(icon: Icons.thumb_up, text: "786"),
+            PopularNewsImage(),
+            SizedBox(width: MARGIN_XLARGE),
+            Expanded(
+              child: PopularNewsInfo(),
+            ),
           ],
-        )
-      ],
-    );
-  }
-}
-
-class IconAndText extends StatelessWidget {
-  final IconData icon;
-  final String text;
-
-  IconAndText({this.icon, this.text});
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Icon(
-          icon,
-          size: MARGIN_MEDIUM_2,
-          color: Colors.grey[600],
         ),
-        SizedBox(width: MARGIN_SMALL),
-        Text(
-          text,
-          style: TextStyle(
-            color: Colors.grey[600],
-          ),
-        )
-      ],
+      ),
     );
   }
 }
