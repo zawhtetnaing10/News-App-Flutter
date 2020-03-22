@@ -1,0 +1,1 @@
+const double BOTTOM_NAVIGATION_ITEM_SIZE = 18;
