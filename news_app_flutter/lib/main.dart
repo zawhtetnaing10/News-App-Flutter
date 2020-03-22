@@ -3,7 +3,7 @@ import 'package:news_app_flutter/screens/bookmark_screen.dart';
 import 'package:news_app_flutter/screens/home_screen.dart';
 import 'package:news_app_flutter/screens/profile_screen.dart';
 import 'package:news_app_flutter/screens/search_screen.dart';
-import 'package:news_app_flutter/utils/constants.dart';
+import 'package:news_app_flutter/utils/dimensions.dart';
 
 void main() => runApp(MyApp());
 
